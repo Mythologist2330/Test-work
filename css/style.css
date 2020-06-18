@@ -19,28 +19,66 @@ body{
     justify-content: center;
 }
 
-.logoby{
+.mainlogoby{
     width: 154px;
     height: 50px;
-    margin: 0 27px 0 0;
+    margin: 20.5px 27px 20.5px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.logoby1{
+    height: 30px;
+    display: flex;
+    align-items: center;
 }
 
 .circle{
     width: 28px;
     height: 27px;
+    margin: 0 6px 0 0;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .circle-part{
     position: absolute;
 }
 
+.cp1{
+    top: 4px;
+    left: 5px;
+}
 
+.letters-part{
+    margin: 0 -1.3px;
+}
 
+.logoby2{
+    width: 154px;
+    height: 20px;
+    position: relative;
+}
 
+.i-part{
+    position: absolute;
+}
+
+.cp2{
+    top: 4px;
+    left: 5px;
+}
+
+.overlay{
+    position: absolute;
+}
+
+.cp3{
+    top: 0;
+    left: 31.5px;
+    font-weight: 500;
+    font-size: 12px;
+    color: #fff;
+}
 
 .menu{
     width: 630px;
