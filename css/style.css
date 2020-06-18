@@ -1,0 +1,90 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: Montserrat;
+    font-size: 16px;
+    background-color: #1E1E1E;
+}
+
+.header{
+    width: 1920px;
+    height: 91px;
+    margin: 200px auto;
+    background-color: #EBEEF5;
+    display: flex;
+    justify-content: center;
+}
+
+.menu{
+    width: 630px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.menu-tab{
+    color: #656773;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.menu-tab:hover{
+    border-bottom: 2px solid #397DFF;
+    border-top: 2px solid rgb(235,238,245,0);
+    color: #397DFF;
+}
+
+.envelope{
+    width: 22px;
+    margin: 0 10px 0 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.envelope-part{
+    position: absolute;
+}
+
+.email{
+    width: 116px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.phone{
+    width: 22px;
+    margin: 0 10px 0 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feedback{
+    width: 103px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.feedback-1{
+    font-size: 13px;
+    line-height: 14px;
+    color: #397DFF;
+}
+
+.feedback-2{
+    font-size: 15px;
+    line-height: 16px;
+}
