@@ -6,7 +6,7 @@
 
 body{
     font-family: Montserrat;
-    font-size: 16px;
+    font-size: 14px;
     background-color: #1E1E1E;
 }
 
@@ -57,7 +57,8 @@ body{
 }
 
 .email{
-    width: 116px;
+    width: 115px;
+    font-size: 13px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,12 +80,13 @@ body{
 }
 
 .feedback-1{
-    font-size: 13px;
-    line-height: 14px;
+    font-size: 11px;
+    line-height: 13px;
     color: #397DFF;
 }
 
 .feedback-2{
-    font-size: 15px;
+    font-size: 13px;
     line-height: 16px;
+    font-weight: 600;
 }
