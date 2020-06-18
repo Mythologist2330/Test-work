@@ -27,6 +27,10 @@ body{
     flex-direction: column;
 }
 
+.a-logo{
+    text-decoration: none;
+}
+
 .logoby1{
     height: 30px;
     display: flex;
