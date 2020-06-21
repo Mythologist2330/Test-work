@@ -28,13 +28,11 @@ body{
 .btn:hover {
     background: #2b61c8;
 }
-
 header{
     max-width: 1200px;
     height: 91px;
     margin: 0 auto;
     padding: 0 3%;
-    background-color: #EBEEF5;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,7 +55,6 @@ header{
 }
 
 .menu-tab{
-    color: #656773;
     margin: 0 5px;
     height: 100%;
     display: flex;
@@ -105,19 +102,71 @@ header{
     flex-direction: column;
     justify-content: center;
 }
-
 .feedback-1{
     font-size: 11px;
     line-height: 13px;
     color: #397DFF;
 }
-
 .feedback-2{
     font-size: 13px;
     line-height: 16px;
     font-weight: 600;
 }
- /* ------------------------ */
+/* ------------------------- */
+
+.header-wrap {
+    position: fixed;
+    width: 100%;
+    color: #fff;
+    z-index: 11;
+    transition: all 0.3s;
+    background: transparent;
+}
+.header-wrap.fill {
+    background: #EBEEF5;
+    color: #656773;
+}
+.header-wrap.scroll {
+     position: fixed;
+     width: 100%;
+     color: #656773;
+     transform: translateY(-100%);
+ }
+.header-wrap a.menu-tab {
+    color: white;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.header-wrap.fill a.menu-tab {
+    color: #656773;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+}
+.header-wrap .feedback .feedback-1 {
+    color: #fff ;
+}
+.header-wrap.fill .feedback .feedback-1 {
+    color: #656773 ;
+}
+svg path {
+    transition: all 0.3s ease-in-out;
+}
+svg.white path.el1 {fill: #397DFF;}
+svg.white path.install {fill: #3F476B;}
+svg.white path.install_back {fill: #fff;}
+svg.white path.dj {fill: #fff; stroke: #fff}
+svg.white path.mail_svg {stroke: #fff}
+svg.white path.phone_svg {stroke: #fff}
+
+
+
+
+/* ------------------------ */
 .slide-wrap {
     position: relative;
     width: 100%;
@@ -251,11 +300,15 @@ img.slide-img.visible {
     }
 }
 @media screen and (max-width: 1020px) {
+    .header-wrap {
+        position: relative;
+    }
     header {
         padding: 0 5%;
     }
     .menu {
         position: absolute;
+        height: 100vh;
         width: 100%;
         top:90px;
         left: 0;
@@ -275,11 +328,17 @@ img.slide-img.visible {
     .menu.active {
         transform: translateX(0);
     }
-    .menu-tab {
+    .header-wrap a.menu-tab {
         width: 100%;
         height: 72px;
         justify-content: left;
+        color: #656773;
         border-bottom: 1px solid rgba(43, 45, 58, 0.1);
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        display: flex;
     }
     .menu-tab:hover, .menu-tab:active, .menu-tab:focus{
         border-bottom: 1px solid rgba(43, 45, 58, 0.1);
@@ -336,6 +395,7 @@ img.slide-img.visible {
         margin: 32px 0;
     }
     .just-mobile p.write-us {
+        color: #656773;
         font-weight: bold;
         font-size: 22px;
         line-height: 27px;

@@ -1,18 +1,52 @@
 let menu = document.getElementById('menu');
 let burger = document.getElementById('burger');
-let toggle = false;
-let slideCaption = document.querySelectorAll('.slide');
-let slideImg = document.querySelectorAll('img.slide-img');
-let prev = document.getElementById('prev');
-let next = document.getElementById('next');
-let h1 = document.querySelector('.caption h1');
+let toggle = false; /* Переключатель для бургера */
+let slideCaption = document.querySelectorAll('.slide'); /* Блоки описания к слайдам */
+let slideImg = document.querySelectorAll('img.slide-img'); /* Сами слайды */
+let prev = document.getElementById('prev'); /* Предыдущий слайд */
+let next = document.getElementById('next'); /* Следующий слайд */
+
+let h1 = document.querySelector('.caption h1'); /* Заголовок страницы (меняется вместе со слайдом) */
 let translateX = 0;
 let idx = 0;
+let lastScrollTop = 0;
+let header = document.querySelector('.header-wrap'); /* Шапка сайта */
+let logo = document.getElementById('svg'); /* Лого сайта */
+let mail = document.getElementById('mail_svg'); /* Иконка почты */
+let phone = document.getElementById('phone_svg'); /* Иконка обратной связи */
+let width = document.body.clientWidth; /* Ширина экрана пользователя */
 
-/* При загрузке страницы появляется первый слайд */
+/* Скролл-эффект в шапке */
+window.addEventListener('scroll',() => {
+    if (width <= 1020) return;
+    let st = window.pageYOffset;
+    if (st > lastScrollTop) {
+        header.classList.add('scroll');
+    } else if ( st === 0 ){
+        header.classList.remove('scroll');
+        header.classList.remove('fill') ;
+        addClassWhite()
+    } else {
+        header.classList.remove('scroll');
+        header.classList.add('fill') ;
+        addClassWhite()
+    }
+    lastScrollTop = st;
+});
+
+/* При загрузке страницы появляется первый слайд и меняются стили в шапке */
 window.addEventListener('load', () => {
     slideImg[0].classList.add('visible');
+    if (width >= 1020) {
+        addClassWhite()
+    }
 });
+
+function addClassWhite() {
+    logo.classList.add('white');
+    mail.classList.add('white');
+    phone.classList.add('white');
+}
 
 prev.addEventListener('click',() => {
     next.classList.remove('disabled');
