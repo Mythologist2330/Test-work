@@ -15,6 +15,8 @@ let logo = document.getElementById('svg'); /* Лого сайта */
 let mail = document.getElementById('mail_svg'); /* Иконка почты */
 let phone = document.getElementById('phone_svg'); /* Иконка обратной связи */
 let width = document.body.clientWidth; /* Ширина экрана пользователя */
+let tooltip = document.querySelector('.tooltip-wrap');
+let tooltipTarget = document.querySelector('.target-wrap.left');
 
 /* Скролл-эффект в шапке */
 window.addEventListener('scroll',() => {
@@ -93,3 +95,7 @@ burger.addEventListener('click', () => {
         burger.classList.remove('active');
     }
 });
+
+function toggleTooltip() {
+   tooltip.classList.toggle('visible');
+}
