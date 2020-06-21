@@ -93,3 +93,41 @@ burger.addEventListener('click', () => {
         burger.classList.remove('active');
     }
 });
+
+/*--------------------Modal  window   (started version)------------------*/
+
+let overlay = document.getElementById('overlay')
+
+let popup = document.getElementById('popup')
+let openPopup = document.getElementById('openPopup')
+let closePopup = document.getElementById('closePopup')
+
+openPopup.onclick = () => {
+    overlay.style.display = 'block'
+    popup.style.display = 'block'
+	return
+}
+
+closePopup.onclick = () => {
+	overlay.style.display = 'none'
+	return
+}
+
+
+let submitComplete = document.getElementById('submitComplete')
+let buttonSubmit = document.getElementById('buttonSubmit')
+
+buttonSubmit.onclick = () => {
+    popup.style.display = 'none'
+    submitComplete.style.display = 'flex'
+    return
+}
+
+
+let buttonOk = document.getElementById('buttonOk')
+
+buttonOk.onclick = () => {
+    submitComplete.style.display = 'none'
+    overlay.style.display = 'none'
+    return
+}
