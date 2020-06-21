@@ -29,7 +29,7 @@ body{
     background: #2b61c8;
 }
 
-.header{
+header{
     max-width: 1200px;
     height: 91px;
     margin: 0 auto;
@@ -119,12 +119,23 @@ body{
 }
  /* ------------------------ */
 .slide-wrap {
+    position: relative;
     width: 100%;
     height: 624px;
     overflow: hidden;
-    background: url("../img/slide.jpg") center #fff;
-    filter: opacity(0);
-    transition: filter 1s ease-in-out;
+}
+img.slide-img{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    transition: opacity 700ms ease-in-out;
+    opacity: 0;
+}
+img.slide-img.visible {
+    opacity: 1;
 }
 .caption-wrap {
     max-width: 1200px;
@@ -172,7 +183,7 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: left;
-    transform: translateX(300px);
+    transform: translateX(1050px);
     overflow: hidden;
 }
 .slide {
@@ -235,6 +246,9 @@ body{
     .envelope {
         display: none;
     }
+    .slides {
+        display: none;
+    }
 }
 @media screen and (max-width: 1020px) {
     header {
@@ -256,6 +270,7 @@ body{
         background-color: #EBEEF5;
         transform: translateX(-100%);
         transition: all 0.4s ease-in-out;
+        z-index: 10;
     }
     .menu.active {
         transform: translateX(0);
@@ -279,64 +294,96 @@ body{
     .phone {
         display: none;
     }
-.burger {
-    width: 1.5rem;
-    height: 1.5rem;
-    display: flex;
-    justify-content: space-around;
-    flex-flow: column nowrap;
+    .burger {
+        width: 1.5rem;
+        height: 1.5rem;
+        display: flex;
+        justify-content: space-around;
+        flex-flow: column nowrap;
+    }
+    .burger div {
+        display: flex;
+        width: 1.5rem;
+        height: 0.15rem;
+        background-color: #000;
+        border-radius: 10px;
+        transform-origin: 1px;
+        transition: all 0.3s;
+    }
+    .burger.active div:nth-child(1){
+         transform: rotate(45deg);
+    }
+    .burger div:nth-child(1), .burger div:nth-child(3){
+         transform: rotate(0);
+    }
+    .burger div:nth-child(2){
+         opacity: 1;
+    }
+    .burger.active div:nth-child(2){
+        opacity: 0;
+    }
+    .burger.active div:nth-child(3){
+         transform: rotate(-45deg);
+    }
+    .just-mobile {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .just-mobile button.btn {
+        height: 42px;
+        width: 100%;
+        margin: 32px 0;
+    }
+    .just-mobile p.write-us {
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 27px;
+    }
+    .just-mobile div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 17px 0 89px;
+        color: #397DFF;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+    }
 }
-.burger div {
-    display: flex;
-    width: 1.5rem;
-    height: 0.15rem;
-    background-color: #000;
-    border-radius: 10px;
-    transform-origin: 1px;
-    transition: all 0.3s;
-}
-.burger.active div:nth-child(1){
-     transform: rotate(45deg);
-}
-.burger div:nth-child(1){
-     transform: rotate(0);
-}
-.burger div:nth-child(2){
-     opacity: 1;
-}
-.burger.active div:nth-child(2){
-    opacity: 0;
-}
-.burger.active div:nth-child(3){
-     transform: rotate(-45deg);
-}
-.burger div:nth-child(3){
-    transform: rotate(0);
-}
-.just-mobile {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-.just-mobile button.btn {
-    height: 42px;
-    width: 100%;
-    margin: 32px 0;
-}
-.just-mobile p.write-us {
-    font-weight: bold;
-    font-size: 22px;
-    line-height: 27px;
-}
-.just-mobile div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 17px 0 89px;
-    color: #397DFF;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 22px;
+@media screen and (max-width: 420px) {
+    .caption {
+        width: 100%;
+        padding: 36px 5%;
+    }
+    .caption p {
+        font-size: 14px;
+        line-height: 17px;
+    }
+    .caption h1 {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 37px;
+    }
+    .caption p.description {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 23px;
+    }
+    .btn-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .caption .btn-group button {
+        margin: 32px 0;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 17px;
+        width: 158px;
+    }
 }
 
-}
