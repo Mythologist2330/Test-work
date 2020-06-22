@@ -1,32 +1,23 @@
-let menu = document.getElementById('menu');
-let burger = document.getElementById('burger');
-let toggle = false; /* Переключатель для бургера */
-let slideCaption = document.querySelectorAll('.slide'); /* Блоки описания к слайдам */
-let slideImg = document.querySelectorAll('img.slide-img'); /* Сами слайды */
-let prev = document.getElementById('prev'); /* Предыдущий слайд */
-let next = document.getElementById('next'); /* Следующий слайд */
-
-let h1 = document.querySelector('.caption h1'); /* Заголовок страницы (меняется вместе со слайдом) */
-let translateX = 0;
-let idx = 0;
-let lastScrollTop = 0;
-let header = document.querySelector('.header-wrap'); /* Шапка сайта */
-let logo = document.getElementById('svg'); /* Лого сайта */
-let mail = document.getElementById('mail_svg'); /* Иконка почты */
-let phone = document.getElementById('phone_svg'); /* Иконка обратной связи */
-let width = document.body.clientWidth; /* Ширина экрана пользователя */
-let tooltip = document.querySelector('.tooltip-wrap');
-let tooltipTarget = document.querySelector('.target-wrap.left');
+// (function(){
+window.addEventListener('load', () => {
+    let slideImg = document.querySelectorAll('img.slide-img');
+    slideImg[0].classList.add('visible');
+    if (document.body.clientWidth >= 1020) {
+        addClassWhite()
+    }
+});
 
 /* Скролл-эффект в шапке */
+let lastScrollTop = 0;
 window.addEventListener('scroll',() => {
-    if (width <= 1020) return;
+    let header = document.querySelector('.header-wrap'); /* Шапка сайта */
+    if (document.body.clientWidth <= 1020) return;
     let st = window.pageYOffset;
     if (st > lastScrollTop) {
         header.classList.add('scroll');
     } else if ( st === 0 ){
         header.classList.remove('scroll');
-        header.classList.remove('fill') ;
+        header.classList.remove('fill');
         addClassWhite()
     } else {
         header.classList.remove('scroll');
@@ -35,98 +26,87 @@ window.addEventListener('scroll',() => {
     }
     lastScrollTop = st;
 });
-
-/* При загрузке страницы появляется первый слайд и меняются стили в шапке */
-window.addEventListener('load', () => {
-    slideImg[0].classList.add('visible');
-    if (width >= 1020) {
-        addClassWhite()
-    }
-});
-
 function addClassWhite() {
+    let logo = document.getElementById('svg'); /* Лого сайта */
+    let mail = document.getElementById('mail_svg'); /* Иконка почты */
+    let phone = document.getElementById('phone_svg'); /* Иконка обратной связи */
     logo.classList.add('white');
     mail.classList.add('white');
     phone.classList.add('white');
 }
 
-prev.addEventListener('click',() => {
-    next.classList.remove('disabled');
-    if (translateX === 0) return;
-    translateX += 390; /* 350px - ширина блока + 40px отступ */
-    idx--;
-    (translateX === 0) ? prev.classList.add('disabled') : {};
-    changeTranslateX(translateX, idx)
-});
+const slideShow = {
+    idx: 0,
+    slideWidth: -390, /* ширина слайда (350px - ширина блока + 40px отступ) */
+    amount: 4, /* количество слайдов */
+    prev: document.getElementById('prev'),
+    next: document.getElementById('next'),
+    get translateX (){
+        return this.slideWidth * this.idx
+    },
+    prevSlide(e) {
+        this.next.classList.remove('disabled');
+        if (this.translateX === 0) return;
+        this.idx--;
+        (this.translateX === 0) ? e.target.classList.add('disabled') : {};
+        this.changeSlide(this.translateX, this.idx)
+    },
+    nextSlide(e) {
+        this.prev.classList.remove('disabled');
+        if (this.idx === (this.amount - 1)) return;
+        this.idx++;
+        (this.idx === (this.amount -1)) ? e.target.classList.add('disabled') : {};
+        this.changeSlide(this.translateX, this.idx)
+    },
+    changeSlide(translateX, idx) {
+        let slideCaption = document.querySelectorAll('.slide'); /* Блоки описания к слайдам */
+        let slideImg = document.querySelectorAll('img.slide-img'); /* Сами слайды */
+        let h1 = document.querySelector('.caption h1'); /* Заголовок страницы (меняется вместе со слайдом) */
 
-next.addEventListener('click',() => {
-    prev.classList.remove('disabled');
-    if (translateX === -1170) return; /* Всего 4 блока по 390px */
-    translateX -= 390;
-    idx++;
-    (translateX === -1170) ? next.classList.add('disabled') : {};
-    changeTranslateX(translateX, idx)
-});
+        h1.innerHTML = `Видео конференции (${idx + 1})`;
+        slideImg.forEach(img => {
+            img.classList.remove('visible');
+        });
+        slideCaption.forEach((elem, item) => {
+            elem.style.transform = `translateX(${translateX}px)`;
+            slideImg[idx].classList.add('visible');
+            (item !== idx) ? elem.classList.remove('active') : elem.classList.add('active');
+        });
+    }
+};
 
-function changeTranslateX(translateX, idx){
-
-    /* Меняем заголовок слайда */
-    h1.innerHTML = `Видео конференции (${idx + 1})`;
-    /* Меняем картинки */
-    slideImg.forEach(img => {
-        img.classList.remove('visible');
-    });
-    /* Листаем описание справа */
-    slideCaption.forEach((elem, item) => {
-        elem.style.transform = `translateX(${translateX}px)`;
-        slideImg[idx].classList.add('visible');
-        (item !== idx) ? elem.classList.remove('active') : elem.classList.add('active');
-    });
+function toggleBurger(){
+    let menu = document.getElementById('menu');
+    let burger = document.getElementById('burger');
+    menu.classList.toggle('active');
+    burger.classList.toggle('active');
 }
 
-/* Бургер меню */
-burger.addEventListener('click', () => {
-    toggle = !toggle;
-    if (toggle) {
-        menu.classList.add('active');
-        burger.classList.add('active');
-    } else {
-        menu.classList.remove('active');
-        burger.classList.remove('active');
-    }
-});
-
 function toggleTooltip() {
-   tooltip.classList.toggle('visible');
+    let tooltip = document.querySelector('.tooltip-wrap');
+    tooltip.classList.toggle('visible');
 }
 
 /*--------------------Modal  window   (started version)------------------*/
-
-let overlay = document.getElementById('overlay');
-let popup = document.getElementById('popup');
-let openPopup = document.getElementById('openPopup');
-let closePopup = document.getElementById('closePopup');
-
-openPopup.onclick = () => {
-    overlay.style.display = 'block';
-    popup.style.display = 'block';
+const modalWindow = {
+    submitComplete: document.getElementById('submitComplete'),
+    buttonSubmit: document.getElementById('buttonSubmit')
 };
 
-closePopup.onclick = () => {
-	overlay.style.display = 'none';
-};
-
-let submitComplete = document.getElementById('submitComplete');
-let buttonSubmit = document.getElementById('buttonSubmit');
-
-buttonSubmit.onclick = () => {
-    popup.style.display = 'none';
-    submitComplete.style.display = 'flex';
+modalWindow.buttonSubmit.onclick = () => {
+    modalWindow.submitComplete.style.display = 'flex';
 };
 
 let buttonOk = document.getElementById('buttonOk');
-
 buttonOk.onclick = () => {
-    submitComplete.style.display = 'none';
-    overlay.style.display = 'none';
+    let overlay = document.getElementById('overlay');
+    modalWindow.submitComplete.style.display = 'none';
+    overlay.classList.toggle('active');
 };
+
+function togglePopup() {
+    let overlay = document.getElementById('overlay');
+    overlay.classList.toggle('active');
+}
+
+// })();

@@ -202,7 +202,8 @@ img.slide-img.visible {
 }
 .caption {
     display: flex;
-    width: 60%;
+    max-width: 700px;
+    width: 94%;
     flex-direction: column;
     font-style: normal;
     padding: 123px 0 0 3%;
@@ -223,11 +224,16 @@ img.slide-img.visible {
     font-size: 16px;
     line-height: 148%;
 }
+.caption .btn-group {
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+}
 .caption .btn {
     height: 48px;
-    width: 184px;
-    margin: 54px 24px 0 0;
-    padding: 0 10px;
+    /*max-width: 184px;*/
+    margin: 54px 0;
+    padding: 0 20px;
     cursor: pointer;
 }
 .caption .btn.btn-transparent {
@@ -271,7 +277,7 @@ img.slide-img.visible {
 .slide p {
     font-size: 14px;
     line-height: 160%;
-    margin: 24px 0 54px;
+    margin: 54px 0;
     color: #ffffff70;
 }
 
@@ -431,6 +437,198 @@ img.slide-img.visible {
 .close:after {
     transform: rotate(-45deg);
 }
+
+
+/*--------------------Modal  window   (started version)---------------------------*/
+
+.overlay{
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .8);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    z-index: 11;
+}
+.overlay.active {
+    display: block;
+}
+
+.popup{
+    width: 90%;
+    max-width: 538px;
+    padding: 32px 42px 48px 42px;
+    background-color: #fff;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    border-radius: 16px;
+}
+
+.areReady{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.fillForm{
+    font-size: 16px;
+    line-height: 160%;
+    margin: 12px 0 28px 0;
+}
+
+.blockInputs{
+    width: 100%;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inputSizes{
+    height: 48px;
+    padding: 0 15px;
+    font-size: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 9px;
+}
+
+.delArrow::-webkit-outer-spin-button, .delArrow::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+
+.inputSizes::-webkit-input-placeholder       {text-indent: 0;   transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
+.inputSizes::-moz-placeholder                {text-indent: 0;   transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
+.inputSizes:-moz-placeholder                 {text-indent: 0;   transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
+.inputSizes:-ms-input-placeholder            {text-indent: 0;   transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
+.inputSizes:focus::-webkit-input-placeholder {text-indent: 500px; transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
+.inputSizes:focus::-moz-placeholder          {text-indent: 500px; transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
+.inputSizes:focus:-moz-placeholder           {text-indent: 500px; transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
+.inputSizes:focus:-ms-input-placeholder      {text-indent: 500px; transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
+
+
+
+.agreement{
+    font-size: 14px;
+    line-height: 17px;
+    margin: 32px 0 12px 0;
+}
+
+.agreement input{
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 3px;
+    left: 0;
+    margin: 0 8px 0 0;
+}
+
+.agreement a{
+    color: #397DFF;
+    text-decoration: none;
+}
+
+.buttonSubmit{
+    width: 100%;
+    height: 52px;
+    background: #397DFF;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.closePopup{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+}
+
+.closePopup::before{
+    content: '';
+    width: 26px;
+    height: 2px;
+    position: absolute;
+    top: 8px;
+    left: -4px;
+    background-color: #2B2D3A;
+    transform: rotate(-45deg);
+}
+
+.closePopup::after{
+    content: '';
+    width: 26px;
+    height: 2px;
+    position: absolute;
+    top: 8px;
+    left: -4px;
+    background-color: #000;
+    transform: rotate(45deg);
+}
+
+.submitComplete{
+    max-width: 538px;
+    width: 90%;
+    padding: 34px 42px 48px 42px;
+    background-color: #fff;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    border-radius: 16px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.submitComplete.active {
+    display: flex;
+}
+
+.infoAboutSubmit{
+    max-width: 454px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.svgCircle{
+    margin: 0 0 24px 0;
+}
+
+.textComplete{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 162%;
+    text-align: center;
+}
+
+.buttonOk{
+    max-width: 454px;
+    height: 52px;
+    background: #397DFF;
+    border: none;
+    border-radius: 8px;
+    margin: 24px 0 0;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff;
+    cursor: pointer;
+}
+
+
 @media screen and (max-width: 1100px) {
     .envelope {
         display: none;
@@ -559,6 +757,11 @@ img.slide-img.visible {
     }
 }
 @media screen and (max-width: 420px) {
+    .caption-wrap {
+        display: flex;
+        height: 100%;
+        align-items: center;
+    }
     .caption {
         width: 100%;
         padding: 36px 5%;
@@ -580,17 +783,17 @@ img.slide-img.visible {
     }
     .btn-group {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-between;
+        margin: 44px 0;
         width: 100%;
     }
     .caption .btn-group button {
-        margin: 32px 0;
+        margin: 10px 0;
         font-style: normal;
         font-weight: normal;
         font-size: 14px;
         line-height: 17px;
-        width: 158px;
     }
     .ev1 {
         display: none;
@@ -604,187 +807,8 @@ img.slide-img.visible {
     .corner {
         right: 313px;
     }
-}
+    .popup,.submitComplete {
+        padding: 32px 5% 48px;
+    }
 
-/*--------------------Modal  window   (started version)---------------------------*/
-
-.overlay{
-	background-color: rgba(0, 0, 0, .8);
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: none;
-}
-
-.popup{
-    width: 538px;
-    height: 407px;
-    padding: 32px 42px 48px 42px;
-    background-color: #fff;
-    position: absolute;
-    top: 50vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-    border-radius: 16px;
-    display: none;
-}
-
-.areReady{
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 29px;
-}
-
-.fillForm{
-    font-size: 16px;
-    line-height: 160%;
-    margin: 12px 0 28px 0;
-}
-
-.blockInputs{
-    width: 454px;
-    height: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.inputSizes{
-    width: 454px;
-    height: 48px;
-    padding: 0 15px;
-    font-size: 16px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 9px;
-}
-
-.delArrow::-webkit-outer-spin-button, .delArrow::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-
-
-
-.inputSizes::-webkit-input-placeholder,
-.inputSizes::-moz-placeholder,
-.inputSizes:-moz-placeholder,
-.inputSizes:-ms-input-placeholder {
-    text-indent: 0;
-    transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);
-}
-
-.inputSizes:focus::-webkit-input-placeholder,
-.inputSizes:focus::-moz-placeholder,
-.inputSizes:focus:-moz-placeholder,
-.inputSizes:focus:-ms-input-placeholder {
-    text-indent: 500px;
-}
-
-.agreement{
-    font-size: 14px;
-    line-height: 17px;
-    margin: 32px 0 12px 0;
-}
-
-.agreement input{
-    width: 16px;
-    height: 16px;
-    position: relative;
-    top: 3px;
-    left: 0;
-    margin: 0 8px 0 0;
-}
-
-.agreement a{
-    color: #397DFF;
-    text-decoration: none;
-}
-
-.buttonSubmit{
-    width: 454px;
-    height: 52px;
-    background: #397DFF;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 22px;
-    color: #fff;
-    cursor: pointer;
-}
-
-.closePopup{
-	width: 18px;
-	height: 18px;
-	position: absolute;
-	top: 16px;
-	right: 24px;
-    cursor: pointer;
-}
-
-.closePopup::before{
-	content: '';
-	width: 26px;
-	height: 2px;
-	position: absolute;
-	top: 8px;
-	left: -4px;
-	background-color: #000;
-    transform: rotate(-45deg);
-}
-
-.closePopup::after{
-	content: '';
-	width: 26px;
-	height: 2px;
-	position: absolute;
-	top: 8px;
-	left: -4px;
-	background-color: #000;
-	transform: rotate(45deg);
-}
-
-.submitComplete{
-    width: 538px;
-    height: 407px;
-    padding: 34px 42px 48px 42px;
-    background-color: #fff;
-    position: absolute;
-    top: 50vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-    border-radius: 16px;
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.infoAboutSubmit{
-    width: 454px;
-    height: 241px;
-}
-
-.svgCircle{
-    margin: 0 0 24px;
-}
-
-.textComplete{
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 162%;
-    text-align: center;
-}
-
-.buttonOk{
-    width: 454px;
-    height: 52px;
-    background: #397DFF;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 22px;
-    color: #fff;
-    cursor: pointer;
 }
