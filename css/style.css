@@ -609,8 +609,6 @@ img.slide-img.visible {
 /*--------------------Modal  window   (started version)---------------------------*/
 
 .overlay{
-    width: 100vw;
-    height: 100%;
 	background-color: rgba(0, 0, 0, .8);
     position: absolute;
     top: 0;
@@ -668,16 +666,20 @@ img.slide-img.visible {
 
 
 
-.inputSizes::-webkit-input-placeholder       {text-indent: 0;   transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
-.inputSizes::-moz-placeholder                {text-indent: 0;   transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
-.inputSizes:-moz-placeholder                 {text-indent: 0;   transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
-.inputSizes:-ms-input-placeholder            {text-indent: 0;   transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
-.inputSizes:focus::-webkit-input-placeholder {text-indent: 500px; transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
-.inputSizes:focus::-moz-placeholder          {text-indent: 500px; transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
-.inputSizes:focus:-moz-placeholder           {text-indent: 500px; transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
-.inputSizes:focus:-ms-input-placeholder      {text-indent: 500px; transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
+.inputSizes::-webkit-input-placeholder,
+.inputSizes::-moz-placeholder,
+.inputSizes:-moz-placeholder,
+.inputSizes:-ms-input-placeholder {
+    text-indent: 0;
+    transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);
+}
 
-
+.inputSizes:focus::-webkit-input-placeholder,
+.inputSizes:focus::-moz-placeholder,
+.inputSizes:focus:-moz-placeholder,
+.inputSizes:focus:-ms-input-placeholder {
+    text-indent: 500px;
+}
 
 .agreement{
     font-size: 14px;
@@ -764,7 +766,7 @@ img.slide-img.visible {
 }
 
 .svgCircle{
-    margin: 0 0 24px 0;
+    margin: 0 0 24px;
 }
 
 .textComplete{
