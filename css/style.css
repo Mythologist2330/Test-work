@@ -493,6 +493,7 @@ img.slide-img.visible {
     height: 48px;
     padding: 0 15px;
     font-size: 16px;
+    line-height: 114%;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 9px;
 }
