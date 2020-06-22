@@ -295,6 +295,189 @@ img.slide-img.visible {
     background: #ffffff30;
 }
 
+/*--------------------Modal  window   (started version)---------------------------*/
+
+.overlay{
+    width: 100vw;
+    height: 100%;
+	background-color: rgba(0, 0, 0, .8);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+}
+
+.popup{
+    width: 538px;
+    height: 407px;
+    padding: 32px 42px 48px 42px;
+    background-color: #fff;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    border-radius: 16px;
+    display: none;
+}
+
+.areReady{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.fillForm{
+    font-size: 16px;
+    line-height: 160%;
+    margin: 12px 0 28px 0;
+}
+
+.blockInputs{
+    width: 454px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inputSizes{
+    width: 454px;
+    height: 48px;
+    padding: 0 15px;
+    font-size: 16px;
+    line-height: 114%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 9px;
+}
+
+.delArrow::-webkit-outer-spin-button, .delArrow::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+
+.inputSizes::-webkit-input-placeholder       {text-indent: 0;   transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
+.inputSizes::-moz-placeholder                {text-indent: 0;   transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
+.inputSizes:-moz-placeholder                 {text-indent: 0;   transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
+.inputSizes:-ms-input-placeholder            {text-indent: 0;   transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
+.inputSizes:focus::-webkit-input-placeholder {text-indent: 500px; transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
+.inputSizes:focus::-moz-placeholder          {text-indent: 500px; transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
+.inputSizes:focus:-moz-placeholder           {text-indent: 500px; transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
+.inputSizes:focus:-ms-input-placeholder      {text-indent: 500px; transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
+
+
+
+.agreement{
+    font-size: 14px;
+    line-height: 17px;
+    margin: 32px 0 12px 0;
+}
+
+.agreement input{
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 3px;
+    left: 0;
+    margin: 0 8px 0 0;
+}
+
+.agreement a{
+    color: #397DFF;
+    text-decoration: none;
+}
+
+.buttonSubmit{
+    width: 454px;
+    height: 52px;
+    background: #397DFF;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.closePopup{
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	top: 16px;
+    right: 24px;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.closePopup::before{
+	content: '';
+	width: 26px;
+	height: 2px;
+	position: absolute;
+	top: 8px;
+	left: -4px;
+	background-color: #000;
+    transform: rotate(-45deg);
+}
+
+.closePopup::after{
+	content: '';
+	width: 26px;
+	height: 2px;
+	position: absolute;
+	top: 8px;
+	left: -4px;
+	background-color: #000;
+	transform: rotate(45deg);
+}
+
+.submitComplete{
+    width: 538px;
+    height: 407px;
+    padding: 34px 42px 48px 42px;
+    background-color: #fff;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    border-radius: 16px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.infoAboutSubmit{
+    width: 454px;
+    height: 241px;
+}
+
+.svgCircle{
+    margin: 0 0 24px 0;
+}
+
+.textComplete{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 162%;
+    text-align: center;
+}
+
+.buttonOk{
+    width: 454px;
+    height: 52px;
+    background: #397DFF;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff;
+    cursor: pointer;
+}
+
 
 @media screen and (max-width: 1100px) {
     .envelope {
@@ -415,6 +598,103 @@ img.slide-img.visible {
         font-size: 18px;
         line-height: 22px;
     }
+
+    .popup{
+        width: 343px;
+        height: 346px;
+        padding: 38px 16px 30px 16px;
+    }
+
+    .areReady{
+        font-weight: 600;
+        font-size: 21px;
+        line-height: 26px;
+    }
+
+    .fillForm{
+        font-size: 12px;
+        line-height: 120%;
+        margin: 12px 0 24px 0;
+    }
+
+    .blockInputs{
+        width: 311px;
+        height: 100px;
+    }
+
+    .inputSizes{
+        width: 311px;
+        height: 42px;
+        padding: 0 12px;
+        font-size: 14px;
+    }
+
+    .agreement{
+        font-size: 9px;
+        line-height: 11px;
+        margin: 18px 0 19px 0;
+    }
+
+    .agreement input{
+        top: 4px;
+    }
+
+    .buttonSubmit{
+        width: 311px;
+        height: 46px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+    }
+    
+    .closePopup{
+        width: 14px;
+        height: 14px;
+        right: 16px;
+    }
+
+    .closePopup::before{
+        width: 20px;
+        height: 1px;
+        top: 6px;
+        left: -3px;
+    }
+    
+    .closePopup::after{
+        width: 20px;
+        height: 1px;
+        top: 6px;
+        left: -3px;
+    }
+
+    .submitComplete{
+        width: 343px;
+        height: 346px;
+        padding: 42px 16px 30px 16px;
+    }
+
+    .infoAboutSubmit{
+        width: 311px;
+        height: 199px;
+    }
+    
+    .svgCircle{
+        width: 100%;
+        height: 130px;
+        margin: 0 0 24px 0;
+    }
+
+    .textComplete{
+        font-size: 14px;
+    }
+
+    .buttonOk{
+        width: 311px;
+        height: 46px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 162%;
+    }
 }
 @media screen and (max-width: 420px) {
     .caption {
@@ -450,185 +730,4 @@ img.slide-img.visible {
         line-height: 17px;
         width: 158px;
     }
-}
-
-/*--------------------Modal  window   (started version)---------------------------*/
-
-.overlay{
-    width: 100vw;
-    height: 100%;
-	background-color: rgba(0, 0, 0, .8);
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: none;
-}
-
-.popup{
-    width: 538px;
-    height: 407px;
-    padding: 32px 42px 48px 42px;
-    background-color: #fff;
-    position: absolute;
-    top: 50vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-    border-radius: 16px;
-    display: none;
-}
-
-.areReady{
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 29px;
-}
-
-.fillForm{
-    font-size: 16px;
-    line-height: 160%;
-    margin: 12px 0 28px 0;
-}
-
-.blockInputs{
-    width: 454px;
-    height: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.inputSizes{
-    width: 454px;
-    height: 48px;
-    padding: 0 15px;
-    font-size: 16px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 9px;
-}
-
-.delArrow::-webkit-outer-spin-button, .delArrow::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-
-
-
-.inputSizes::-webkit-input-placeholder       {text-indent: 0;   transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
-.inputSizes::-moz-placeholder                {text-indent: 0;   transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
-.inputSizes:-moz-placeholder                 {text-indent: 0;   transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
-.inputSizes:-ms-input-placeholder            {text-indent: 0;   transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
-.inputSizes:focus::-webkit-input-placeholder {text-indent: 500px; transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
-.inputSizes:focus::-moz-placeholder          {text-indent: 500px; transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
-.inputSizes:focus:-moz-placeholder           {text-indent: 500px; transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
-.inputSizes:focus:-ms-input-placeholder      {text-indent: 500px; transition: text-indent 0.3s ease; color: rgba(43, 45, 58, 0.5);}
-
-
-
-.agreement{
-    font-size: 14px;
-    line-height: 17px;
-    margin: 32px 0 12px 0;
-}
-
-.agreement input{
-    width: 16px;
-    height: 16px;
-    position: relative;
-    top: 3px;
-    left: 0;
-    margin: 0 8px 0 0;
-}
-
-.agreement a{
-    color: #397DFF;
-    text-decoration: none;
-}
-
-.buttonSubmit{
-    width: 454px;
-    height: 52px;
-    background: #397DFF;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 22px;
-    color: #fff;
-    cursor: pointer;
-}
-
-.closePopup{
-	width: 18px;
-	height: 18px;
-	position: absolute;
-	top: 16px;
-	right: 24px;
-    cursor: pointer;
-}
-
-.closePopup::before{
-	content: '';
-	width: 26px;
-	height: 2px;
-	position: absolute;
-	top: 8px;
-	left: -4px;
-	background-color: #000;
-    transform: rotate(-45deg);
-}
-
-.closePopup::after{
-	content: '';
-	width: 26px;
-	height: 2px;
-	position: absolute;
-	top: 8px;
-	left: -4px;
-	background-color: #000;
-	transform: rotate(45deg);
-}
-
-.submitComplete{
-    width: 538px;
-    height: 407px;
-    padding: 34px 42px 48px 42px;
-    background-color: #fff;
-    position: absolute;
-    top: 50vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-    border-radius: 16px;
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.infoAboutSubmit{
-    width: 454px;
-    height: 241px;
-}
-
-.svgCircle{
-    margin: 0 0 24px 0;
-}
-
-.textComplete{
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 162%;
-    text-align: center;
-}
-
-.buttonOk{
-    width: 454px;
-    height: 52px;
-    background: #397DFF;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 22px;
-    color: #fff;
-    cursor: pointer;
 }

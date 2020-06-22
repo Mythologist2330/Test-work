@@ -101,6 +101,7 @@ let overlay = document.getElementById('overlay')
 let popup = document.getElementById('popup')
 let openPopup = document.getElementById('openPopup')
 let closePopup = document.getElementById('closePopup')
+let closePupopComplete = document.getElementById('closePupopComplete')
 
 openPopup.onclick = () => {
     overlay.style.display = 'block'
@@ -123,6 +124,11 @@ buttonSubmit.onclick = () => {
     return
 }
 
+
+closePupopComplete.onclick = () => {
+    submitComplete.style.display = 'none'
+    overlay.style.display = 'none'
+}
 
 let buttonOk = document.getElementById('buttonOk')
 
