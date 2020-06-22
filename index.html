@@ -81,7 +81,7 @@
                 <p class="description">Профессиональное оборудование для конференц-залов предназначено для проведения и организации презентаций,
                     совещаний, бизнес-тренингов и онлайн-трансляции контента.</p>
                 <div class="btn-group">
-                    <button class="btn btn-transparent">Обратный звонок</button>
+                    <button class="btn btn-transparent" id="openPopup">Обратный звонок</button>
                     <button class="btn">Заполнить бриф</button>
                 </div>
             </div>
@@ -139,6 +139,40 @@
             </div>
         </div>
     </div>
+    <div class="overlay" id="overlay">
+        <div class="popup" id="popup">
+            <p class="areReady">Готовы обсудить проект?</p>
 
+            <p class="fillForm">Заполните форму ниже и мы свяжемся с вами.</p>
+
+            <form>
+                <div class="blockInputs">
+                    <input class="inputSizes" type="text" placeholder="Имя*" maxlength="20" required>
+
+                    <input class="inputSizes delArrow" id="numberMaxlength" type="number" placeholder="Телефон*" maxlength="20" required>
+                </div>
+
+                <label><p class="agreement"><input type="checkbox" required> Я согласен с условиями обработки <a href="#">персональных данных</a></p></label>
+
+                <input class="buttonSubmit" id="buttonSubmit" type="button" value="Отправить">
+
+                <div class="closePopup" id="closePopup"></div>
+            </form>
+        </div>
+
+        <div class="submitComplete" id="submitComplete">
+            <div class="infoAboutSubmit">
+                <svg class="svgCircle" width="454" height="160" viewBox="0 0 454 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M306.5 80C306.5 123.907 270.907 159.5 227 159.5C183.093 159.5 147.5 123.907 147.5 80C147.5 36.0934 183.093 0.5 227 0.5C270.907 0.5 306.5 36.0934 306.5 80Z" fill="#F2F4F7" stroke="#397DFF"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M227 118.462C248.241 118.462 265.461 101.242 265.461 80C265.461 58.7583 248.241 41.5385 227 41.5385C205.758 41.5385 188.538 58.7583 188.538 80C188.538 101.242 205.758 118.462 227 118.462Z" fill="#397DFF"></path>
+                    <path d="M242.59 68.3077L221.154 89.7436L211.41 80" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+
+                <p class="textComplete">Ваша заявка успешно отправлена.<br>Ожидайте звонка в ближайшее время!</p>
+            </div>
+
+            <button class="buttonOk" id="buttonOk">Ок</button>
+        </div>
+    </div>
 </body>
 </html>
